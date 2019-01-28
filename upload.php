@@ -39,7 +39,7 @@ require("db.php"); //your connection file here
                       echo "Uploaded file with sucess";
                     }
                     else{
-                      echor "Sorry. Uploading file."; 
+                      echor "Sorry. Error uploading file."; 
                     }
 
                 }
