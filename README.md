@@ -4,7 +4,10 @@
 #####################################################
 
 
-This is a multiple file uploads using php+mysql+ajax.
+This is a simple multiple file uploads using php+mysql+ajax.
+
+For each uploaded file, we generate a new insert into mysql table.
 
 
-For each uploaded file, is generated a new register in mysql table.
+Need help?
+robsonponti@hotmail.com
