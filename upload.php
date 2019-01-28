@@ -6,6 +6,8 @@
 
 require("db.php"); //your connection file here
 
+$date = date("Y-m-d H:i:s");
+
     if(count($_FILES['file']['name']) > 0){
         //Loop through each file
         for($i=0; $i<count($_FILES['file']['name']); $i++) {
@@ -17,7 +19,7 @@ require("db.php"); //your connection file here
             if($tmpFilePath != ""){
             
                 //save the filename
-                $shortname = 'youcanwritesomethingifyouwant'. date("Y-m-d").".".$imageFileType; //you can customize this line, here is name of the file uploaded.
+                $shortname = 'file'.rand().'_'.$date.'.'.$imageFileType; //you can customize this line, here is name of the file we are uploading.
 
                 //save the url and the file
                
@@ -32,9 +34,10 @@ require("db.php"); //your connection file here
                     //$shortname for the filename
                     //$filePath for the url file
 
-                    $stmt = $connection->prepare("INSERT INTO table (path, filename) VALUES(?, ?)");
+                    $stmt = $connection->prepare("INSERT INTO multiplefileuploads (path, filename, created) VALUES(?, ?, ?)");
                     $stmt->bindParam(1, $filePath);
                     $stmt->bindParam(2, $shortname);
+                    $stmt->bindParam(3, $date);
                     if($stmt->execute()){
                       echo "Uploaded file with sucess";
                     }
